@@ -1,6 +1,6 @@
 <template>
- 		<div v-if= "users != [] || undefined" class='grid pb-8 xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 px-6 py-12'>
-        <div v-for= 'user in users' :key= 'user.id' class=' p-4 grid rounded-2xl shadow-md md:pl-2 bg-white'>
+ 		<div v-if= "users != [] || undefined" class='grid pb-8 xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 p-8'>
+        <div v-for= 'user in users' :key= 'user.id'class='hover:cursor-pointer p-4 grid rounded-2xl shadow-md md:pl-2 bg-white'>
           <!-- Image and user name -->
           <div>
             <img class='inline-grid w-14 h-14 rounded-full mx-3 opacity-60' src='../public/icons/userIcon.svg' alt='Image' />
@@ -36,7 +36,6 @@
 <script>
 	import { inject, useTransitionState } from "vue";
 	const APIurl = 'https://jsonplaceholder.typicode.com/users'
-	
 	export default {
     name: 'UserCard',
 		created() {
@@ -54,10 +53,5 @@
 				users: undefined,
 			};
 		},
-		methods: {
-      expand() {
-
-      }
-		}
 	}
 </script>
