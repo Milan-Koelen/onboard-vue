@@ -2,7 +2,7 @@
   <main class="bg-gray-200 min-h-screen">
 		<NavBar class="sticky top-0 z-30 w-full"/>
 		<Loading v-if= 'users == undefined' />
-		<UserCard v-if= "users != undefined"/>
+		<UserCard />
   </main>
 </template>
 
@@ -16,20 +16,22 @@
 	const APIurl = 'https://jsonplaceholder.typicode.com/users'
 	
 	export default {
-		created() {
+		setup() { 
+			return {
+				users: [],
+				selected:[],
+				
+			};
+		},
+			created(){
 			const axios = inject("$axios");
 				axios.get(APIurl)
 				.then(data => {
 					this.users = data.data;
-					console.log(this.users)
-					console.log(data.data)
+					// console.log(this.users)
+					// console.log(data.data)
 				})
 				.catch(err => console.error(err));
-		},
-		data() { 
-			return {
-				users: [],
-			};
 		},
 		components: {
 			UserCard,
