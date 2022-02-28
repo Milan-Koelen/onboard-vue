@@ -1,11 +1,8 @@
 <template>
   <main class="bg-gray-200 min-h-screen">
-
 		<NavBar class="sticky top-0 z-30 w-full"/>
-
 		<Loading v-if= 'users == undefined' />
 		<UserCard v-if= "users != undefined"/>
-
   </main>
 </template>
 
@@ -33,8 +30,6 @@
 			return {
 				users: [],
 			};
-		},
-		methods: {
 		},
 		components: {
 			UserCard,
